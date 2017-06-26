@@ -20,7 +20,9 @@ RUN mkdir -p /opt/resource/git && \
     unzip /opt/resource/git/git-resource.zip -d /opt/resource/git && \
     mv /opt/resource/git/git-resource-master/assets/* /opt/resource/git && \
     rm -r /opt/resource/git/git-resource.zip /opt/resource/git/git-resource-master && \
-    sed -i '/lfs/s/^/# /' /opt/resource/git/in
+#    removing lfs was broken with current git-resource in script
+#    sed -i '/lfs/s/^/# /' /opt/resource/git/in
+    sed -i '/^disable_git_lfs/ c\disable_git_lfs=true' /opt/resource/git/in
 
 # install gradle cache resource
 

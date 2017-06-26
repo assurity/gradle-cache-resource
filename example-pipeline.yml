@@ -3,10 +3,9 @@ resource_types:
   # the gradle-cache resource type
   - name: gradle-cache
     type: docker-image
-    source: {repository: assurity/gradle-cache-resource, tag: latest}
+    source: {repository: chrispassurity/gradle-cache-resource, tag: latest}
 
 resources:
-
   # a perfectly normal source repository with lashings and lashings of dependencies
   - name: spring-repo
     type: git
