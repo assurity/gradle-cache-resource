@@ -3,7 +3,7 @@ set -o pipefail
 
 DEST_DIR="$1"
 
-echo "DEST_DIR is $DEST_DIR [$1]"
+echo "DEST_DIR is $DEST_DIR [$1]" >&2
 
 GIT_DEST_DIR="$(mktemp -d -t git-resource-destination.XXXXXX)"
 
@@ -26,9 +26,10 @@ cat >>build.gradle <<-EOF
         'testRuntimeOnly'
       ]
       configurations.forEach {
-      println "Files $it"
-      if( !ignore.contains(it.name) ){
-        it.files
+        println "Config: " + it
+        if( !ignore.contains(it.name) ){
+          it.files
+        }
       }
     }
   }
